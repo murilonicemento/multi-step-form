@@ -1,6 +1,6 @@
-import { Header } from "../../components/Header";
-import { Form } from "../../components/Form";
-import { Button } from "../../components/Button";
+import { Header } from "../components/Header";
+import { Form } from "../components/Form";
+import { Button } from "../components/Button";
 
 export function Home() {
   return (
