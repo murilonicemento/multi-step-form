@@ -12,7 +12,7 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     height: 100vh;
-    background-color: ${colors.primary.lightBlue};
+    background-color: ${colors.primary.pastelBlue};
     font-family: "Ubuntu", Arial, sans-serif;
     font-size: 16px;
   }

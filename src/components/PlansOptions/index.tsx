@@ -1,9 +1,25 @@
-import { Options, Switch } from "./styled";
+import { useState } from "react";
+import { Options, Period, Switch } from "./styled";
 import arcade from "../../assets/images/icon-arcade.svg";
 import advanced from "../../assets/images/icon-advanced.svg";
 import pro from "../../assets/images/icon-pro.svg";
+import ball from "../../assets/images/icon-ball.svg";
+
+interface InputProps {
+  type: "checkbox";
+  name: string;
+  monthly: string;
+}
 
 export function PlansOptions() {
+  const [isMonthly, setIsMonthly] = useState(true);
+
+  const inputProps: InputProps = {
+    type: "checkbox",
+    name: "switch",
+    monthly: isMonthly.toString(),
+  };
+
   return (
     <>
       <Options>
@@ -27,12 +43,20 @@ export function PlansOptions() {
           <span>$15/mo</span>
         </div>
       </Options>
-      <Switch htmlFor="">
-          <input type="checkbox" name="" />
+      <Period>
+        <span>Monthly</span>
+        <Switch htmlFor="switch">
+          <input {...inputProps} />
           <span className="check">
-            {/* <img src="assets/img/ball.svg" alt="" /> */}
+            <img
+              src={ball}
+              alt="White Ball Icon"
+              onClick={() => setIsMonthly(!isMonthly)}
+            />
           </span>
-      </Switch>
+        </Switch>
+        <span>Yearly</span>
+      </Period>
     </>
   );
 }

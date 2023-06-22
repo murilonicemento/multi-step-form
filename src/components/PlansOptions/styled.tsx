@@ -38,9 +38,18 @@ export const Options = styled.div`
   }
 `;
 
-export const Switch = styled.label`
-  margin: 20px auto 0 auto;
+export const Period = styled.div`
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background-color: ${colors.primary.pastelBlue};
+  border-radius: 8px;
+`;
 
+export const Switch = styled.label`
   input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
@@ -48,23 +57,22 @@ export const Switch = styled.label`
     display: none;
   }
 
-  .check {
-    position: relative;
-    display: block;
+  span {
     width: 50px;
-    height: 25px;
+    height: 24px;
+    display: block;
+    position: relative;
     background-color: ${colors.primary.marineBlue};
-    /* background-image: var(--background-image); */
-    background-repeat: no-repeat;
-    /* background-position: var(--background-position); */
-    cursor: pointer;
-    border-radius: 50px;
     overflow: hidden;
+    border-radius: 50px;
+    cursor: pointer;
     transition: 0.3s;
   }
 
   img {
-    margin-top: 7px;
-    margin-left: 140px;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    margin-left: 2px;
   }
 `;
