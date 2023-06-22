@@ -1,15 +1,17 @@
 import { Header } from "../../components/Header";
 import { Form } from "../../components/Form";
+import { PlansOptions } from "../../components/PlansOptions";
 import { Button } from "../../components/Button";
 
-export function Home() {
+export function Plan() {
   return (
     <>
       <Header />
       <Form
-        title="Personal info"
-        content="Please provide your name, email, address and phone number."
+        title="Select your plan"
+        content="You have the option of monthly or yearly billing."
       />
+      {/* <Button content="Go Back" /> */}
       <Button content="Next Step" />
     </>
   );

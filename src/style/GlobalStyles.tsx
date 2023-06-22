@@ -12,7 +12,7 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     height: 100vh;
-    background-color: ${colors.primary.pastelBlue};
+    background-color: ${colors.primary.lightBlue};
     font-family: "Ubuntu", Arial, sans-serif;
     font-size: 16px;
   }
@@ -26,6 +26,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   input::placeholder {
+    font-size: 16px;
+    font-weight: 600;
     color: ${colors.neutral.coolGray};
   }
   

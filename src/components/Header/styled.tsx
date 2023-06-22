@@ -9,7 +9,6 @@ export const MyHeader = styled.header`
   background-image: url(${bgSidebarMobile});
   background-size: cover;
   padding: 30px;
-
   nav {
     display: grid;
     place-items: center;
@@ -17,7 +16,7 @@ export const MyHeader = styled.header`
       display: flex;
       gap: 20px;
 
-      li {
+      a {
         display: grid;
         place-items: center;
         width: 35px;
@@ -25,6 +24,7 @@ export const MyHeader = styled.header`
         list-style-type: none;
         font-weight: 600;
         color: ${colors.neutral.magnolia};
+        text-decoration: none;
         border: 1px solid ${colors.neutral.magnolia};
         border-radius: 50%;
         cursor: pointer;
@@ -35,6 +35,11 @@ export const MyHeader = styled.header`
           color: ${colors.primary.marineBlue};
           transition: all 0.2s ease;
         }
+
+        /* &:visited {
+          background-color: ${colors.primary.lightBlue};
+          color: ${colors.primary.marineBlue};
+        } */
       }
     }
   }
