@@ -36,41 +36,62 @@ export function PlansOptions() {
       <OptionArcade
         onClick={() => setIsArcade(!isArcade)}
         style={{
-          backgroundColor: isArcade && colors.primary.pastelBlue,
-          borderColor: isArcade && colors.primary.purplishBlue,
+          backgroundColor: isArcade ? colors.primary.pastelBlue : "",
+          borderColor: isArcade ? colors.primary.purplishBlue : "",
         }}
       >
         <img src={arcade} alt="Arcade control icon" />
-        <div>
-          <span>Arcade</span>
-          <span>$9/mo</span>
-        </div>
+        {isMonthly ? (
+          <div>
+            <span>Arcade</span>
+            <span>$9/mo</span>
+          </div>
+        ) : (
+          <div>
+            <span>Arcade</span>
+            <span>$90/yr</span>
+          </div>
+        )}
       </OptionArcade>
       <OptionAdvanced
         onClick={() => setIsAdvanced(!isAdvanced)}
         style={{
-          backgroundColor: isAdvanced && colors.primary.pastelBlue,
-          borderColor: isAdvanced && colors.primary.purplishBlue,
+          backgroundColor: isAdvanced ? colors.primary.pastelBlue : "",
+          borderColor: isAdvanced ? colors.primary.purplishBlue : "",
         }}
       >
         <img src={advanced} alt="Switch control icon" />
-        <div>
-          <span>Advanced</span>
-          <span>$12/mo</span>
-        </div>
+        {isMonthly ? (
+          <div>
+            <span>Advanced</span>
+            <span>$12/mo</span>
+          </div>
+        ) : (
+          <div>
+            <span>Advanced</span>
+            <span>$120/yr</span>
+          </div>
+        )}
       </OptionAdvanced>
       <OptionPro
         onClick={() => setIsPro(!isPro)}
         style={{
-          backgroundColor: isPro && colors.primary.pastelBlue,
-          borderColor: isPro && colors.primary.purplishBlue,
+          backgroundColor: isPro ? colors.primary.pastelBlue : "",
+          borderColor: isPro ? colors.primary.purplishBlue : "",
         }}
       >
         <img src={pro} alt="Console control icon" />
-        <div>
-          <span>Pro</span>
-          <span>$15/mo</span>
-        </div>
+        {isMonthly ? (
+          <div>
+            <span>Advanced</span>
+            <span>$15/mo</span>
+          </div>
+        ) : (
+          <div>
+            <span>Advanced</span>
+            <span>$150/yr</span>
+          </div>
+        )}
       </OptionPro>
       <Period>
         <Span monthly={isMonthly}>Monthly</Span>

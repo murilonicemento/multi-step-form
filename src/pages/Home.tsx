@@ -1,6 +1,6 @@
 import { Header } from "../components/Header";
 import { Form } from "../components/Form";
-import { Button } from "../components/Button";
+import { NextStepButton } from "../components/NextStepButton";
 
 export function Home() {
   return (
@@ -10,7 +10,7 @@ export function Home() {
         title="Personal info"
         content="Please provide your name, email, address and phone number."
       />
-      <Button content="Next Step" />
+      <NextStepButton pathname="/plan" content="Next Step" />
     </>
   );
 }

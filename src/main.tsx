@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Home } from "./pages/Home";
 import { Plan } from "./pages/Plan";
+import { AddOns } from "./pages/AddOns";
 import { NotFound } from "./pages/NotFound";
 import { GlobalStyles } from "./style/GlobalStyles";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -13,7 +14,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/plan" element={<Plan />} />
-        <Route path="/addOns" element={<Plan />} />
+        <Route path="/addOns" element={<AddOns />} />
         <Route path="/finish" element={<Plan />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
