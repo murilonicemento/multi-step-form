@@ -16,15 +16,12 @@ export const MyHeader = styled.header`
       display: flex;
       gap: 20px;
 
-      a {
+      li {
         display: grid;
         place-items: center;
         width: 35px;
         height: 35px;
         list-style-type: none;
-        font-weight: 600;
-        color: ${colors.neutral.magnolia};
-        text-decoration: none;
         border: 1px solid ${colors.neutral.magnolia};
         border-radius: 50%;
         cursor: pointer;
@@ -32,14 +29,24 @@ export const MyHeader = styled.header`
 
         &:hover {
           background-color: ${colors.primary.lightBlue};
-          color: ${colors.primary.marineBlue};
-          transition: all 0.2s ease;
+
+          a {
+            color: ${colors.primary.marineBlue};
+            transition: all 0.2s ease;
+          }
         }
 
-        /* &:visited {
-          background-color: ${colors.primary.lightBlue};
-          color: ${colors.primary.marineBlue};
-        } */
+        a {
+          width: 33px;
+          height: 33px;
+          display: flex;
+          align-items:center;
+          justify-content:center;
+          font-weight: 600;
+          color: ${colors.neutral.magnolia};
+          text-decoration: none;
+          border-radius: 50%;
+        }
       }
     }
   }
