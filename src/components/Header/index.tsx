@@ -1,55 +1,67 @@
-import { useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { MyHeader } from "./styled";
 import { colors } from "../../config/colors";
 
 export function Header() {
+  const location = useLocation();
+  const { pathname } = location;
+
+  const linkStyle = {
+    backgroundColor: colors.primary.lightBlue,
+    color: colors.primary.marineBlue,
+  };
+
   return (
     <MyHeader>
       <nav>
         <ul>
-          <li>
-            <NavLink
-              to="/"
-              style={(isActive) => ({
-                backgroundColor: isActive ? colors.neutral.lightBlue : "",
-                color: isActive ? colors.primary.marineBlue : colors.neutral.magnolia,
-              })}
-            >
-              1
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/plan"
-              style={(isActive) => ({
-                color: isActive ? colors.primary.marineBlue : colors.neutral.magnolia,
-              })}
-            >
-              2
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/addOns"
-              style={(isActive) => ({
-                color: isActive ? colors.primary.marineBlue : colors.neutral.magnolia,
-              })}
-            >
-              3
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/finish"
-              style={(isActive) => ({
-                color: isActive ? colors.primary.marineBlue : colors.neutral.magnolia,
-              })}
-            >
-              4
-            </NavLink>
-            <Link to="/"></Link>
-          </li>
+          {pathname === "/" ? (
+            <li>
+              <Link to="/" style={linkStyle}>
+                1
+              </Link>
+            </li>
+          ) : (
+            <li>
+              <Link to="/">1</Link>
+            </li>
+          )}
+
+          {pathname === "/plan" ? (
+            <li>
+              <Link to="/plan" style={linkStyle}>
+                2
+              </Link>
+            </li>
+          ) : (
+            <li>
+              <Link to="/plan">2</Link>
+            </li>
+          )}
+
+          {pathname === "/addOns" ? (
+            <li>
+              <Link to="/addOns" style={linkStyle}>
+                3
+              </Link>
+            </li>
+          ) : (
+            <li>
+              <Link to="/addOns">3</Link>
+            </li>
+          )}
+
+          {pathname === "/finish" ? (
+            <li>
+              <Link to="/finish" style={linkStyle}>
+                4
+              </Link>
+            </li>
+          ) : (
+            <li>
+              <Link to="/finish">4</Link>
+            </li>
+          )}
         </ul>
       </nav>
     </MyHeader>

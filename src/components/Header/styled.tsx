@@ -22,7 +22,7 @@ export const MyHeader = styled.header`
         width: 35px;
         height: 35px;
         list-style-type: none;
-        border: 1px solid ${colors.neutral.magnolia};
+        border: 1px solid ${colors.primary.lightBlue};
         border-radius: 50%;
         cursor: pointer;
         transition: all 0.2s ease;
