@@ -13,21 +13,23 @@ import pro from "../../assets/images/icon-pro.svg";
 import ball from "../../assets/images/icon-ball.svg";
 import { colors } from "../../config/colors";
 
-interface InputProps {
-  type: "checkbox";
-  name: string;
-  monthly: string;
-}
-
 export function PlansOptions() {
   const [isMonthly, setIsMonthly] = useState(true);
   const [isArcade, setIsArcade] = useState(false);
   const [isAdvanced, setIsAdvanced] = useState(false);
   const [isPro, setIsPro] = useState(false);
 
+  interface InputProps {
+    type: "checkbox";
+    name: string;
+    checked: boolean;
+    monthly: string;
+  }
+
   const inputProps: InputProps = {
     type: "checkbox",
     name: "switch",
+    checked: isMonthly,
     monthly: isMonthly.toString(),
   };
 

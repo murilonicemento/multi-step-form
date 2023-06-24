@@ -55,7 +55,9 @@ export function AddOnsOptions() {
       </Options>
       <Options
         style={{
-          backgroundColor: isCustomizableProfile ? colors.primary.lightBlue : "",
+          backgroundColor: isCustomizableProfile
+            ? colors.primary.lightBlue
+            : "",
           borderColor: isCustomizableProfile ? colors.primary.marineBlue : "",
         }}
       >

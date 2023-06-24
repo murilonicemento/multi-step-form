@@ -51,7 +51,7 @@ export function Header() {
             </li>
           )}
 
-          {pathname === "/finish" ? (
+          {pathname === "/finish" || pathname === "/acknowledgment" ? (
             <li>
               <Link to="/finish" style={linkStyle}>
                 4

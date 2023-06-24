@@ -3,17 +3,17 @@ import { Form } from "../components/Form";
 import { GoBackButton } from "../components/GoBackButton";
 import { NextStepButton } from "../components/NextStepButton";
 
-export function AddOns() {
+export function Finish() {
   return (
     <>
       <Header />
       <Form
-        title="Pick add-ons"
-        content="Add-ons help enhance your gaming experience."
+        title="Finishing up"
+        content="Double-check everything looks OK before confirming."
       />
       <div>
-        <GoBackButton pathname="/plan" content="Go Back" />
-        <NextStepButton pathname="/finish" content="COnfirm" />
+        <GoBackButton pathname="/addOns" content="Go Back" />
+        <NextStepButton pathname="/acknowledgment" content="Confirm" />
       </div>
     </>
   );
