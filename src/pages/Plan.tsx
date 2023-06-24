@@ -4,12 +4,6 @@ import { NextStepButton } from "../components/NextStepButton";
 import { GoBackButton } from "../components/GoBackButton";
 
 export function Plan() {
-  const divButtonsStyle = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-  };
-
   return (
     <>
       <Header />

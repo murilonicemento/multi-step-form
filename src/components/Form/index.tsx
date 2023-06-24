@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { PersonalInfo } from "../PersonalInfo";
 import { PlansOptions } from "../PlansOptions";
+import { AddOnsOptions } from "../AddOnsOptions";
 import { MyForm } from "./styled";
 
 interface FormProps {
@@ -19,7 +20,7 @@ export function Form({ title, content }: FormProps) {
       case "/plan":
         return <PlansOptions />;
       case "/addOns":
-        return <></>;
+        return <AddOnsOptions/>;
       case "/check":
         return <></>;
       case "/finish":

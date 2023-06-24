@@ -42,7 +42,7 @@ export const MyHeader = styled.header`
           display: flex;
           align-items:center;
           justify-content:center;
-          font-weight: 600;
+          font-weight: 700;
           color: ${colors.neutral.magnolia};
           text-decoration: none;
           border-radius: 50%;

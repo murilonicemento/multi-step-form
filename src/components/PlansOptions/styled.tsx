@@ -19,7 +19,7 @@ export const OptionArcade = styled.div`
   }
 
   span:first-child {
-    font-weight: 600;
+    font-weight: 700;
     color: ${colors.primary.marineBlue};
   }
 

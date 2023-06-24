@@ -17,7 +17,7 @@ export const MyButton = styled.button`
     display: grid;
     place-items: center;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
     color: ${colors.neutral.coolGray};
   }
 `;
