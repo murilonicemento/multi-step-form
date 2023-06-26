@@ -14,7 +14,7 @@ export function PersonalInfo() {
       />
       <Label htmlFor="name">Phone Number</Label>
       <Input
-        type="text"
+        type="number"
         name="name"
         id="name"
         placeholder="e.g +1 234 567 890"

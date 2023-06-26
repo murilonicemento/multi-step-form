@@ -13,7 +13,7 @@ export function AddOns() {
       />
       <div>
         <GoBackButton pathname="/plan" content="Go Back" />
-        <NextStepButton pathname="/finish" content="COnfirm" />
+        <NextStepButton pathname="/finish" content="Next Step" />
       </div>
     </>
   );
