@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
 
-export type GlobalContent = {
+export interface GlobalContent {
   name: string;
   email: string;
   phoneNumber: string;
@@ -13,7 +13,7 @@ export type GlobalContent = {
   setPlan: (plan: string) => void;
   setIsMonthly: (isMonthly: boolean) => void;
   setAddOns: (addOns: string[]) => void;
-};
+}
 
 export const MyGlobalContext = createContext({
   name: "",

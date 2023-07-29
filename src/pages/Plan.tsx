@@ -1,6 +1,5 @@
 import { Header } from "../components/Header";
 import { Form } from "../components/Form";
-import { NextStepButton } from "../components/NextStepButton";
 import { GoBackButton } from "../components/GoBackButton";
 
 export function Plan() {
@@ -13,7 +12,6 @@ export function Plan() {
       />
       <div>
         <GoBackButton pathname="/" content="Go Back" />
-        <NextStepButton pathname="/addOns" content="Next Step" />
       </div>
     </>
   );

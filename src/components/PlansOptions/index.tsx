@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   OptionArcade,
   OptionAdvanced,
@@ -6,32 +7,49 @@ import {
   Period,
   Switch,
   Span,
+  MyButton,
 } from "./styled";
+import { colors } from "../../config/colors";
 import arcade from "../../assets/images/icon-arcade.svg";
 import advanced from "../../assets/images/icon-advanced.svg";
 import pro from "../../assets/images/icon-pro.svg";
 import ball from "../../assets/images/icon-ball.svg";
-import { colors } from "../../config/colors";
+import { useGlobalContext } from "../../hooks/useGlobalContext";
 
 export function PlansOptions() {
   const [isMonthly, setIsMonthly] = useState(true);
-  const [isArcade, setIsArcade] = useState(false);
+  const [isArcade, setIsArcade] = useState(true);
   const [isAdvanced, setIsAdvanced] = useState(false);
   const [isPro, setIsPro] = useState(false);
+  const navigate = useNavigate();
+  const { setPlan } = useGlobalContext();
 
   interface InputProps {
     type: "checkbox";
     name: string;
-    checked: boolean;
+    defaultChecked: boolean;
     monthly: string;
   }
 
   const inputProps: InputProps = {
     type: "checkbox",
     name: "switch",
-    checked: isMonthly,
+    defaultChecked: isMonthly,
     monthly: isMonthly.toString(),
   };
+
+  function verifyPlans(event: { preventDefault: () => void }) {
+    event.preventDefault();
+    const plansValues = [isArcade, isAdvanced, isPro];
+    const quantityPlansSelected = plansValues.filter((plan) => plan === true);
+
+    if (quantityPlansSelected.length > 1) {
+      return alert("You can only select one plan");
+    }
+
+    setPlan(quantityPlansSelected);
+    navigate("/addOns");
+  }
 
   return (
     <>
@@ -109,6 +127,9 @@ export function PlansOptions() {
         </Switch>
         <Span monthly={isMonthly}>Yearly</Span>
       </Period>
+      <MyButton onClick={verifyPlans}>
+        <span>Next Step</span>
+      </MyButton>
     </>
   );
 }
