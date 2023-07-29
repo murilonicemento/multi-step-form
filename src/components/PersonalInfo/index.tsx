@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useGlobalContext } from "../../hooks/useGlobalContext.js";
 import { Label, Input } from "./styled";
 
 export function PersonalInfo() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [number, setNumber] = useState("");
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [number, setNumber] = useState("");
+  const { name, email, phoneNumber, setName, setEmail, setPhoneNumber } =
+    useGlobalContext();
 
   return (
     <>
@@ -32,8 +34,8 @@ export function PersonalInfo() {
         name="name"
         id="name"
         placeholder="e.g +1 234 567 890"
-        value={number}
-        onChange={(event) => setNumber(event.target.value)}
+        value={phoneNumber}
+        onChange={(event) => setPhoneNumber(event.target.value)}
       />
     </>
   );
