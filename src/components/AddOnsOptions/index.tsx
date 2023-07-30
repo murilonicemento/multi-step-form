@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AddOnsArray, useGlobalContext } from "../../hooks/useGlobalContext";
 import { Options, MyButton } from "./styled";
@@ -8,7 +8,7 @@ export function AddOnsOptions() {
   const [isOnlineService, setIsOnlineService] = useState(false);
   const [isLargerStorage, setIsLargerStorage] = useState(false);
   const [isCustomizableProfile, setIsCustomizableProfile] = useState(false);
-  const { monthly, setAddOns } = useGlobalContext();
+  const { monthly, addOns, setAddOns } = useGlobalContext();
   const navigate = useNavigate();
 
   function verifyAddOns(event: { preventDefault: () => void }) {
@@ -42,6 +42,15 @@ export function AddOnsOptions() {
     setAddOns(newAddOns);
     navigate("/finish");
   }
+
+  useEffect(() => {
+    addOns.forEach((addOn) => {
+      addOn.addOnsType === "Online Service" && setIsOnlineService(true);
+      addOn.addOnsType === "Larger Storage" && setIsLargerStorage(true);
+      addOn.addOnsType === "Customizable Profile" &&
+        setIsCustomizableProfile(true);
+    });
+  });
 
   return (
     <>
