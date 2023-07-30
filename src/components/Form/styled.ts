@@ -20,6 +20,13 @@ export const MyForm = styled.form`
     font-weight: 500;
     margin-bottom: 20px;
   }
+
+  @media (min-width: 800px) {
+    width: 67%;
+    height: 100vh;
+    position: absolute;
+    margin: 0;
+    top: 10px;
+    right: 10px;
+  }
 `;
-
-
