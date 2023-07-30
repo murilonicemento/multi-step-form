@@ -44,17 +44,17 @@ export function PlansOptions() {
       {
         planType: "Arcade",
         isSelected: isArcade,
-        price: isMonthly ? "$9/mo" : "$90/yr",
+        price: isMonthly ? 9 : 90,
       },
       {
         planType: "Advanced",
         isSelected: isAdvanced,
-        price: isMonthly ? "$12/mo" : "$120/yr",
+        price: isMonthly ? 12 : 120,
       },
       {
         planType: "Pro",
         isSelected: isPro,
-        price: isMonthly ? "$15/mo" : "$150/yr",
+        price: isMonthly ? 15 : 150,
       },
     ];
     const quantityPlansSelected = plansValues.filter(

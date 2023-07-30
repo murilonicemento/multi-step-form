@@ -3,14 +3,14 @@ import { createContext, useContext } from "react";
 export interface AddOnsArray {
   addOnsType: string;
   isSelected: boolean;
-  price: string;
+  price: number;
 }
 
 export interface GlobalContent {
   name: string;
   email: string;
   phoneNumber: string;
-  plan: string;
+  plan: number;
   planType: string;
   monthly: boolean;
   addOns?: AddOnsArray[];
@@ -27,14 +27,14 @@ export const MyGlobalContext = createContext({
   name: "",
   email: "",
   phoneNumber: "",
-  plan: "",
+  plan: 0,
   planType: "Arcade",
   monthly: true,
-  addOns: [{ addOnsType: "", isSelected: false, price: "" }],
+  addOns: [{ addOnsType: "", isSelected: false, price: 0 }],
   setName: (name: string) => {},
   setEmail: (email: string) => {},
   setPhoneNumber: (phoneNumber: string) => {},
-  setPlan: (plan: string) => {},
+  setPlan: (plan: number) => {},
   setPlanType: (planType: string) => {},
   setMonthly: (monthly: boolean) => {},
   setAddOns: (addOns: AddOnsArray[]) => {},

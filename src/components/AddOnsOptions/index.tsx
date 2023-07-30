@@ -18,17 +18,17 @@ export function AddOnsOptions() {
       {
         addOnsType: "Online Service",
         isSelected: isOnlineService,
-        price: monthly ? "+$1/mo" : "+$10/yr",
+        price: monthly ? 1 : 10,
       },
       {
         addOnsType: "Larger Storage",
         isSelected: isLargerStorage,
-        price: monthly ? "+$2/mo" : "+$20/yr",
+        price: monthly ? 2 : 20,
       },
       {
         addOnsType: "Customizable Profile",
         isSelected: isCustomizableProfile,
-        price: monthly ? "+$2/mo" : "+$20/yr",
+        price: monthly ? 2 : 20,
       },
     ];
     const newAddOns: AddOnsArray[] = [];

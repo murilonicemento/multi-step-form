@@ -12,7 +12,7 @@ function App() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [plan, setPlan] = useState("");
+  const [plan, setPlan] = useState(0);
   const [planType, setPlanType] = useState("");
   const [monthly, setMonthly] = useState(true);
   const [addOns, setAddOns] = useState<AddOnsArray[]>([]);
