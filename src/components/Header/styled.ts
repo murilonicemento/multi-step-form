@@ -48,6 +48,10 @@ export const MyHeader = styled.header`
           text-decoration: none;
           border-radius: 50%;
         }
+
+        div {
+          display: none;
+        }
       }
     }
   }
