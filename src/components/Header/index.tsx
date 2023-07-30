@@ -20,10 +20,18 @@ export function Header() {
               <Link to="/" style={linkStyle}>
                 1
               </Link>
+              <div>
+                <span>STEP 1</span>
+                <span>YOUR INFO</span>
+              </div>
             </li>
           ) : (
             <li>
               <Link to="/">1</Link>
+              <div>
+                <span>STEP 1</span>
+                <span>YOUR INFO</span>
+              </div>
             </li>
           )}
 
@@ -32,10 +40,18 @@ export function Header() {
               <Link to="/plan" style={linkStyle}>
                 2
               </Link>
+              <div>
+                <span>STEP 2</span>
+                <span>SELECT PLAN</span>
+              </div>
             </li>
           ) : (
             <li>
               <Link to="/plan">2</Link>
+              <div>
+                <span>STEP 2</span>
+                <span>SELECT PLAN</span>
+              </div>
             </li>
           )}
 
@@ -44,10 +60,18 @@ export function Header() {
               <Link to="/addOns" style={linkStyle}>
                 3
               </Link>
+              <div>
+                <span>STEP 3</span>
+                <span>ADD-ONS</span>
+              </div>
             </li>
           ) : (
             <li>
               <Link to="/addOns">3</Link>
+              <div>
+                <span>STEP 3</span>
+                <span>ADD-ONS</span>
+              </div>
             </li>
           )}
 
@@ -56,10 +80,18 @@ export function Header() {
               <Link to="/finish" style={linkStyle}>
                 4
               </Link>
+              <div>
+                <span>STEP 4</span>
+                <span>SUMMARY</span>
+              </div>
             </li>
           ) : (
             <li>
               <Link to="/finish">4</Link>
+              <div>
+                <span>STEP 4</span>
+                <span>SUMMARY</span>
+              </div>
             </li>
           )}
         </ul>
