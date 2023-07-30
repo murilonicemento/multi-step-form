@@ -20,4 +20,10 @@ export const MyButton = styled.button`
     font-weight: 700;
     color: ${colors.neutral.coolGray};
   }
+
+  @media (min-width: 800px) {
+    left: 450px;
+    bottom: 0;
+    border: 1px solid ${colors.neutral.coolGray};
+  }
 `;
