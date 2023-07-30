@@ -1,5 +1,11 @@
 import { createContext, useContext } from "react";
 
+export interface AddOnsArray {
+  addOnsType: string;
+  isSelected: boolean;
+  price: string;
+}
+
 export interface GlobalContent {
   name: string;
   email: string;
@@ -7,14 +13,14 @@ export interface GlobalContent {
   plan: string;
   planType: string;
   monthly: boolean;
-  addOns?: string[];
+  addOns?: AddOnsArray[];
   setName: (name: string) => void;
   setEmail: (email: string) => void;
   setPhoneNumber: (phoneNumber: string) => void;
   setPlan: (plan: string) => void;
   setPlanType: (planType: string) => void;
   setIsMonthly: (isMonthly: boolean) => void;
-  setAddOns: (addOns: string[]) => void;
+  setAddOns: (addOns: AddOnsArray[]) => void;
 }
 
 export const MyGlobalContext = createContext({
@@ -24,14 +30,14 @@ export const MyGlobalContext = createContext({
   plan: "",
   planType: "Arcade",
   monthly: true,
-  addOns: [""],
+  addOns: [{ addOnsType: "", isSelected: false, price: "" }],
   setName: (name: string) => {},
   setEmail: (email: string) => {},
   setPhoneNumber: (phoneNumber: string) => {},
   setPlan: (plan: string) => {},
   setPlanType: (planType: string) => {},
   setMonthly: (monthly: boolean) => {},
-  setAddOns: (addOns: string[]) => {},
+  setAddOns: (addOns: AddOnsArray[]) => {},
 });
 
 export const useGlobalContext = () => useContext(MyGlobalContext);

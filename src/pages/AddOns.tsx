@@ -1,7 +1,6 @@
 import { Header } from "../components/Header";
 import { Form } from "../components/Form";
 import { GoBackButton } from "../components/GoBackButton";
-import { NextStepButton } from "../components/NextStepButton";
 
 export function AddOns() {
   return (
@@ -13,7 +12,6 @@ export function AddOns() {
       />
       <div>
         <GoBackButton pathname="/plan" content="Go Back" />
-        <NextStepButton pathname="/finish" content="Next Step" />
       </div>
     </>
   );

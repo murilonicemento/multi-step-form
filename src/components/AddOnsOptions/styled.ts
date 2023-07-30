@@ -12,12 +12,12 @@ export const Options = styled.div`
   border: 1px solid ${colors.neutral.lightGray};
   border-radius: 8px;
   cursor: pointer;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 
   &:hover {
     background-color: ${colors.primary.lightBlue};
     border-color: ${colors.primary.marineBlue};
-    transition: all .3s ease;
+    transition: all 0.3s ease;
   }
 
   /* Esconder o checkbox padrão */
@@ -40,7 +40,7 @@ export const Options = styled.div`
     width: 25px;
     height: 25px;
     background-color: ${colors.neutral.white};
-    border: 1px solid ${colors.neutral.lightGray}; 
+    border: 1px solid ${colors.neutral.lightGray};
     border-radius: 8px;
   }
 
@@ -52,7 +52,7 @@ export const Options = styled.div`
     height: 10px;
     left: 8px;
     top: 4px;
-    opacity: 0; 
+    opacity: 0;
   }
 
   /* Mudar a aparência do checkbox quando marcado */
@@ -96,5 +96,26 @@ export const Options = styled.div`
 
   &:not(last-child) {
     margin-bottom: 10px;
+  }
+`;
+
+export const MyButton = styled.button`
+  width: 100px;
+  height: 45px;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  background-color: ${colors.primary.marineBlue};
+  border-radius: 4px;
+  cursor: pointer;
+
+  span {
+    width: 100px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    font-weight: 700;
+    color: ${colors.neutral.white};
   }
 `;

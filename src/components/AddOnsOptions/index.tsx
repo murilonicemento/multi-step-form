@@ -1,15 +1,47 @@
 import { useState } from "react";
-import { useGlobalContext } from "../../hooks/useGlobalContext";
-import { Options } from "./styled";
+import { useNavigate } from "react-router-dom";
+import { AddOnsArray, useGlobalContext } from "../../hooks/useGlobalContext";
+import { Options, MyButton } from "./styled";
 import { colors } from "../../config/colors";
 
 export function AddOnsOptions() {
   const [isOnlineService, setIsOnlineService] = useState(false);
   const [isLargerStorage, setIsLargerStorage] = useState(false);
   const [isCustomizableProfile, setIsCustomizableProfile] = useState(false);
-  const { monthly } = useGlobalContext();
+  const { monthly, setAddOns } = useGlobalContext();
+  const navigate = useNavigate();
 
-  const addOns = [{ isSelected: isOnlineService, price: "+$1/mo" }];
+  function verifyAddOns(event: { preventDefault: () => void }) {
+    event.preventDefault();
+
+    const addOnsValues = [
+      {
+        addOnsType: "Online Service",
+        isSelected: isOnlineService,
+        price: monthly ? "+$1/mo" : "+$10/yr",
+      },
+      {
+        addOnsType: "Larger Storage",
+        isSelected: isLargerStorage,
+        price: monthly ? "+$2/mo" : "+$20/yr",
+      },
+      {
+        addOnsType: "Customizable Profile",
+        isSelected: isCustomizableProfile,
+        price: monthly ? "+$2/mo" : "+$20/yr",
+      },
+    ];
+    const newAddOns: AddOnsArray[] = [];
+
+    addOnsValues.forEach((addOn) => {
+      if (addOn.isSelected) {
+        newAddOns.push(addOn);
+      }
+    });
+
+    setAddOns(newAddOns);
+    navigate("/finish");
+  }
 
   return (
     <>
@@ -81,6 +113,9 @@ export function AddOnsOptions() {
         </div>
         {monthly ? <span>+$2/mo</span> : <span>+$20/yr</span>}
       </Options>
+      <MyButton onClick={verifyAddOns}>
+        <span>Next Step</span>
+      </MyButton>
     </>
   );
 }

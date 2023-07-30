@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { MyGlobalContext } from "./hooks/useGlobalContext";
+import { MyGlobalContext, AddOnsArray } from "./hooks/useGlobalContext";
 import { Home } from "./pages/Home";
 import { Plan } from "./pages/Plan";
 import { AddOns } from "./pages/AddOns";
@@ -15,7 +15,7 @@ function App() {
   const [plan, setPlan] = useState("");
   const [planType, setPlanType] = useState("");
   const [monthly, setMonthly] = useState(true);
-  const [addOns, setAddOns] = useState<string[]>([]);
+  const [addOns, setAddOns] = useState<AddOnsArray[]>([]);
 
   return (
     <MyGlobalContext.Provider
