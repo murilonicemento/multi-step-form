@@ -13,7 +13,8 @@ function App() {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [plan, setPlan] = useState("");
-  const [isMonthly, setIsMonthly] = useState(true);
+  const [planType, setPlanType] = useState("");
+  const [monthly, setMonthly] = useState(true);
   const [addOns, setAddOns] = useState<string[]>([]);
 
   return (
@@ -23,13 +24,15 @@ function App() {
         email,
         phoneNumber,
         plan,
-        isMonthly,
+        planType,
+        monthly,
         addOns,
         setName,
         setEmail,
         setPhoneNumber,
         setPlan,
-        setIsMonthly,
+        setPlanType,
+        setMonthly,
         setAddOns,
       }}
     >

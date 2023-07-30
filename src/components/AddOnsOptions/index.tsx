@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useGlobalContext } from "../../hooks/useGlobalContext";
 import { Options } from "./styled";
 import { colors } from "../../config/colors";
 
@@ -6,6 +7,9 @@ export function AddOnsOptions() {
   const [isOnlineService, setIsOnlineService] = useState(false);
   const [isLargerStorage, setIsLargerStorage] = useState(false);
   const [isCustomizableProfile, setIsCustomizableProfile] = useState(false);
+  const { monthly } = useGlobalContext();
+
+  const addOns = [{ isSelected: isOnlineService, price: "+$1/mo" }];
 
   return (
     <>
@@ -29,7 +33,7 @@ export function AddOnsOptions() {
             <span>Access to multiplayer games</span>
           </div>
         </div>
-        <span>+$1/mo</span>
+        {monthly ? <span>+$1/mo</span> : <span>+$10/yr</span>}
       </Options>
       <Options
         style={{
@@ -51,7 +55,7 @@ export function AddOnsOptions() {
             <span>Extra 1TB of cloud save</span>
           </div>
         </div>
-        <span>+$2/mo</span>
+        {monthly ? <span>+$2/mo</span> : <span>+$20/yr</span>}
       </Options>
       <Options
         style={{
@@ -75,7 +79,7 @@ export function AddOnsOptions() {
             <span>Custom theme on your profile</span>
           </div>
         </div>
-        <span>+$2/mo</span>
+        {monthly ? <span>+$2/mo</span> : <span>+$20/yr</span>}
       </Options>
     </>
   );

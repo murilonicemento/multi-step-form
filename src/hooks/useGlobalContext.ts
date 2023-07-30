@@ -5,12 +5,14 @@ export interface GlobalContent {
   email: string;
   phoneNumber: string;
   plan: string;
-  isMonthly: boolean;
+  planType: string;
+  monthly: boolean;
   addOns?: string[];
   setName: (name: string) => void;
   setEmail: (email: string) => void;
   setPhoneNumber: (phoneNumber: string) => void;
   setPlan: (plan: string) => void;
+  setPlanType: (planType: string) => void;
   setIsMonthly: (isMonthly: boolean) => void;
   setAddOns: (addOns: string[]) => void;
 }
@@ -20,13 +22,15 @@ export const MyGlobalContext = createContext({
   email: "",
   phoneNumber: "",
   plan: "",
-  isMonthly: true,
+  planType: "Arcade",
+  monthly: true,
   addOns: [""],
   setName: (name: string) => {},
   setEmail: (email: string) => {},
   setPhoneNumber: (phoneNumber: string) => {},
   setPlan: (plan: string) => {},
-  setIsMonthly: (isMonthly: boolean) => {},
+  setPlanType: (planType: string) => {},
+  setMonthly: (monthly: boolean) => {},
   setAddOns: (addOns: string[]) => {},
 });
 

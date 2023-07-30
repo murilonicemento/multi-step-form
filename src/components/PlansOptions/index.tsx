@@ -17,12 +17,12 @@ import ball from "../../assets/images/icon-ball.svg";
 import { useGlobalContext } from "../../hooks/useGlobalContext";
 
 export function PlansOptions() {
-  const [isMonthly, setIsMonthly] = useState(true);
+  const { monthly, setMonthly, setPlan, setPlanType } = useGlobalContext();
+  const [isMonthly, setIsMonthly] = useState(monthly);
   const [isArcade, setIsArcade] = useState(true);
   const [isAdvanced, setIsAdvanced] = useState(false);
   const [isPro, setIsPro] = useState(false);
   const navigate = useNavigate();
-  const { setPlan } = useGlobalContext();
 
   interface InputProps {
     type: "checkbox";
@@ -40,14 +40,38 @@ export function PlansOptions() {
 
   function verifyPlans(event: { preventDefault: () => void }) {
     event.preventDefault();
-    const plansValues = [isArcade, isAdvanced, isPro];
-    const quantityPlansSelected = plansValues.filter((plan) => plan === true);
+    const plansValues = [
+      {
+        planType: "Arcade",
+        isSelected: isArcade,
+        price: isMonthly ? "$9/mo" : "$90/yr",
+      },
+      {
+        planType: "Advanced",
+        isSelected: isAdvanced,
+        price: isMonthly ? "$12/mo" : "$120/yr",
+      },
+      {
+        planType: "Pro",
+        isSelected: isPro,
+        price: isMonthly ? "$15/mo" : "$150/yr",
+      },
+    ];
+    const quantityPlansSelected = plansValues.filter(
+      (plan) => plan.isSelected === true
+    );
 
-    if (quantityPlansSelected.length > 1) {
+    if (quantityPlansSelected.length > 1)
       return alert("You can only select one plan");
-    }
 
-    setPlan(quantityPlansSelected);
+    plansValues.forEach((plan) => {
+      if (plan.isSelected) {
+        setPlanType(plan.planType);
+        setPlan(plan.price);
+      }
+    });
+
+    setMonthly(isMonthly);
     navigate("/addOns");
   }
 
@@ -61,17 +85,10 @@ export function PlansOptions() {
         }}
       >
         <img src={arcade} alt="Arcade control icon" />
-        {isMonthly ? (
-          <div>
-            <span>Arcade</span>
-            <span>$9/mo</span>
-          </div>
-        ) : (
-          <div>
-            <span>Arcade</span>
-            <span>$90/yr</span>
-          </div>
-        )}
+        <div>
+          <span>Arcade</span>
+          {isMonthly ? <span>$9/mo</span> : <span>$90/yr</span>}
+        </div>
       </OptionArcade>
       <OptionAdvanced
         onClick={() => setIsAdvanced(!isAdvanced)}
@@ -81,17 +98,10 @@ export function PlansOptions() {
         }}
       >
         <img src={advanced} alt="Switch control icon" />
-        {isMonthly ? (
-          <div>
-            <span>Advanced</span>
-            <span>$12/mo</span>
-          </div>
-        ) : (
-          <div>
-            <span>Advanced</span>
-            <span>$120/yr</span>
-          </div>
-        )}
+        <div>
+          <span>Advanced</span>
+          {isMonthly ? <span>$12/mo</span> : <span>$120/yr</span>}
+        </div>
       </OptionAdvanced>
       <OptionPro
         onClick={() => setIsPro(!isPro)}
@@ -101,17 +111,10 @@ export function PlansOptions() {
         }}
       >
         <img src={pro} alt="Console control icon" />
-        {isMonthly ? (
-          <div>
-            <span>Advanced</span>
-            <span>$15/mo</span>
-          </div>
-        ) : (
-          <div>
-            <span>Advanced</span>
-            <span>$150/yr</span>
-          </div>
-        )}
+        <div>
+          <span>Advanced</span>
+          {isMonthly ? <span>$15/mo</span> : <span>$150/yr</span>}
+        </div>
       </OptionPro>
       <Period>
         <Span monthly={isMonthly}>Monthly</Span>
