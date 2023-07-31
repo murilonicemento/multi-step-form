@@ -44,7 +44,7 @@ export function AddOnsOptions() {
   }
 
   useEffect(() => {
-    addOns.forEach((addOn) => {
+    addOns?.forEach((addOn) => {
       addOn.addOnsType === "Online Service" && setIsOnlineService(true);
       addOn.addOnsType === "Larger Storage" && setIsLargerStorage(true);
       addOn.addOnsType === "Customizable Profile" &&

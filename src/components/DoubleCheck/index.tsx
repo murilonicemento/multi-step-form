@@ -6,7 +6,7 @@ import { AddOns, Plan, Divider, Purchase, Total } from "./styled";
 export function DoubleCheck() {
   const { plan, planType, monthly, addOns } = useGlobalContext();
   let addOnsPrice = 0;
-  addOns.map((addOn) => {
+  addOns?.map((addOn) => {
     addOnsPrice += addOn.price;
   });
   return (
@@ -25,7 +25,7 @@ export function DoubleCheck() {
         </Plan>
         <Divider></Divider>
         <AddOns>
-          {addOns.map((addOns) => (
+          {addOns?.map((addOns) => (
             <li key={uuidv4()}>
               <span>{addOns.addOnsType}</span>
               <span>
