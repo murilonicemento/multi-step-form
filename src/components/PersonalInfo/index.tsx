@@ -1,21 +1,22 @@
-import { useGlobalContext } from "../../hooks/useGlobalContext.js";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { Label, Input } from "./styled";
+import { useGlobalContext } from "../../hooks/useGlobalContext.js";
+import { Label, Input, MyButton } from "./styled";
 import { useEffect } from "react";
 
 export function PersonalInfo() {
   const { name, email, phoneNumber, setName, setEmail, setPhoneNumber } =
     useGlobalContext();
   const { register, setFocus } = useForm();
+  const navigate = useNavigate();
 
-  function validateInputs(event: {
-    preventDefault: () => void;
-    target: { value: string };
-  }) {
+  function verifyForm(event: { preventDefault: () => void }) {
     event.preventDefault();
-    if (event.target.value === "") {
-      alert("Fill in all fields");
-    }
+    if (!name.length) return alert("Name is required!");
+    if (!email.length) return alert("E-mail is required!");
+    if (!phoneNumber.length) return alert("Phone Number is required!");
+
+    navigate("/plan");
   }
 
   useEffect(() => {
@@ -33,7 +34,6 @@ export function PersonalInfo() {
         placeholder="e.g Stephen King"
         value={name}
         onChange={(event) => setName(event.target.value)}
-        onBlur={validateInputs}
       />
 
       <Label htmlFor="name">Email Address</Label>
@@ -44,7 +44,6 @@ export function PersonalInfo() {
         placeholder="e.g.stephenking@lorem.com"
         value={email}
         onChange={(event) => setEmail(event.target.value)}
-        onBlur={validateInputs}
       />
 
       <Label htmlFor="name">Phone Number</Label>
@@ -55,8 +54,11 @@ export function PersonalInfo() {
         placeholder="e.g +1 234 567 890"
         value={phoneNumber}
         onChange={(event) => setPhoneNumber(event.target.value)}
-        onBlur={validateInputs}
       />
+
+      <MyButton onClick={verifyForm}>
+        <span>Next Step</span>
+      </MyButton>
     </>
   );
 }
