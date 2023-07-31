@@ -8,6 +8,7 @@ import {
   Switch,
   Span,
   MyButton,
+  Options,
 } from "./styled";
 import { colors } from "../../config/colors";
 import arcade from "../../assets/images/icon-arcade.svg";
@@ -99,45 +100,47 @@ export function PlansOptions() {
 
   return (
     <>
-      <OptionArcade
-        onClick={() => setIsArcade(!isArcade)}
-        style={{
-          backgroundColor: isArcade ? colors.primary.pastelBlue : "",
-          borderColor: isArcade ? colors.primary.purplishBlue : "",
-        }}
-      >
-        <img src={arcade} alt="Arcade control icon" />
-        <div>
-          <span>Arcade</span>
-          {isMonthly ? <span>$9/mo</span> : <span>$90/yr</span>}
-        </div>
-      </OptionArcade>
-      <OptionAdvanced
-        onClick={() => setIsAdvanced(!isAdvanced)}
-        style={{
-          backgroundColor: isAdvanced ? colors.primary.pastelBlue : "",
-          borderColor: isAdvanced ? colors.primary.purplishBlue : "",
-        }}
-      >
-        <img src={advanced} alt="Switch control icon" />
-        <div>
-          <span>Advanced</span>
-          {isMonthly ? <span>$12/mo</span> : <span>$120/yr</span>}
-        </div>
-      </OptionAdvanced>
-      <OptionPro
-        onClick={() => setIsPro(!isPro)}
-        style={{
-          backgroundColor: isPro ? colors.primary.pastelBlue : "",
-          borderColor: isPro ? colors.primary.purplishBlue : "",
-        }}
-      >
-        <img src={pro} alt="Console control icon" />
-        <div>
-          <span>Advanced</span>
-          {isMonthly ? <span>$15/mo</span> : <span>$150/yr</span>}
-        </div>
-      </OptionPro>
+      <Options>
+        <OptionArcade
+          onClick={() => setIsArcade(!isArcade)}
+          style={{
+            backgroundColor: isArcade ? colors.primary.pastelBlue : "",
+            borderColor: isArcade ? colors.primary.purplishBlue : "",
+          }}
+        >
+          <img src={arcade} alt="Arcade control icon" />
+          <div>
+            <span>Arcade</span>
+            {isMonthly ? <span>$9/mo</span> : <span>$90/yr</span>}
+          </div>
+        </OptionArcade>
+        <OptionAdvanced
+          onClick={() => setIsAdvanced(!isAdvanced)}
+          style={{
+            backgroundColor: isAdvanced ? colors.primary.pastelBlue : "",
+            borderColor: isAdvanced ? colors.primary.purplishBlue : "",
+          }}
+        >
+          <img src={advanced} alt="Switch control icon" />
+          <div>
+            <span>Advanced</span>
+            {isMonthly ? <span>$12/mo</span> : <span>$120/yr</span>}
+          </div>
+        </OptionAdvanced>
+        <OptionPro
+          onClick={() => setIsPro(!isPro)}
+          style={{
+            backgroundColor: isPro ? colors.primary.pastelBlue : "",
+            borderColor: isPro ? colors.primary.purplishBlue : "",
+          }}
+        >
+          <img src={pro} alt="Console control icon" />
+          <div>
+            <span>Advanced</span>
+            {isMonthly ? <span>$15/mo</span> : <span>$150/yr</span>}
+          </div>
+        </OptionPro>
+      </Options>
       <Period>
         <Span monthly={isMonthly}>Monthly</Span>
         <Switch htmlFor="switch" monthly={isMonthly}>

@@ -1,14 +1,15 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useGlobalContext } from "../../hooks/useGlobalContext.js";
 import { Label, Input, MyButton } from "./styled";
-import { useEffect } from "react";
 
 export function PersonalInfo() {
   const { name, email, phoneNumber, setName, setEmail, setPhoneNumber } =
     useGlobalContext();
   const { register, setFocus } = useForm();
   const navigate = useNavigate();
+  const [focus, setIsFocused] = useState(false);
 
   function verifyForm(event: { preventDefault: () => void }) {
     event.preventDefault();
@@ -33,7 +34,10 @@ export function PersonalInfo() {
         id="name"
         placeholder="e.g Stephen King"
         value={name}
-        onChange={(event) => setName(event.target.value)}
+        onChange={(event) => {
+          setName(event.target.value);
+          setIsFocused(true);
+        }}
       />
 
       <Label htmlFor="name">Email Address</Label>
@@ -43,7 +47,9 @@ export function PersonalInfo() {
         id="email"
         placeholder="e.g.stephenking@lorem.com"
         value={email}
-        onChange={(event) => setEmail(event.target.value)}
+        onChange={(event) => {
+          setEmail(event.target.value);
+        }}
       />
 
       <Label htmlFor="name">Phone Number</Label>
@@ -53,7 +59,10 @@ export function PersonalInfo() {
         id="phoneNumber"
         placeholder="e.g +1 234 567 890"
         value={phoneNumber}
-        onChange={(event) => setPhoneNumber(event.target.value)}
+        onChange={(event) => {
+          setPhoneNumber(event.target.value);
+          setIsFocused(true);
+        }}
       />
 
       <MyButton onClick={verifyForm}>

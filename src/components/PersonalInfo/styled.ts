@@ -13,6 +13,14 @@ export const Input = styled.input`
   padding: 20px;
   border: 1px solid ${colors.neutral.lightGray};
   border-radius: 4px;
+  font-weight: 600;
+  color: ${colors.primary.marineBlue};
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    border-color: ${colors.primary.marineBlue};
+    transition: border-color 0.2s ease;
+  }
 `;
 
 export const MyButton = styled.button`

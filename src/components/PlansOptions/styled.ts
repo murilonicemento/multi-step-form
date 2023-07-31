@@ -1,6 +1,16 @@
 import styled from "styled-components";
 import { colors } from "../../config/colors";
 
+export const Options = styled.div`
+  @media (min-width: 800px) {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+`;
+
 export const OptionArcade = styled.div`
   width: 100%;
   height: 80px;
@@ -37,6 +47,19 @@ export const OptionArcade = styled.div`
     border-color: ${colors.primary.purplishBlue};
     transition: all 0.3s ease-in-out;
   }
+
+  @media (min-width: 800px) {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 20px;
+
+    div {
+      margin-top: 50px;
+    }
+  }
 `;
 
 export const OptionAdvanced = styled(OptionArcade)``;
@@ -52,6 +75,11 @@ export const Period = styled.div`
   gap: 20px;
   background-color: ${colors.primary.pastelBlue};
   border-radius: 8px;
+
+  @media (min-width: 800px) {
+    width: 80%;
+    margin: 0 auto;
+  }
 `;
 
 interface SwitchProps {
