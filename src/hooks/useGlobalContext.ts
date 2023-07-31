@@ -17,13 +17,13 @@ export interface GlobalContent {
   setName: (name: string) => void;
   setEmail: (email: string) => void;
   setPhoneNumber: (phoneNumber: string) => void;
-  setPlan: (plan: string) => void;
+  setPlan: (plan: number) => void;
   setPlanType: (planType: string) => void;
-  setIsMonthly: (isMonthly: boolean) => void;
+  setMonthly: (isMonthly: boolean) => void;
   setAddOns: (addOns: AddOnsArray[]) => void;
 }
 
-export const MyGlobalContext = createContext({
+export const MyGlobalContext = createContext<GlobalContent>({
   name: "",
   email: "",
   phoneNumber: "",
