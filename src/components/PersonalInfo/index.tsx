@@ -8,7 +8,10 @@ export function PersonalInfo() {
     useGlobalContext();
   const { register, setFocus } = useForm();
 
-  function validateInputs(event: any) {
+  function validateInputs(event: {
+    preventDefault: () => void;
+    target: { value: string };
+  }) {
     event.preventDefault();
     if (event.target.value === "") {
       alert("Fill in all fields");

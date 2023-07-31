@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { createContext, useContext } from "react";
 
 export interface AddOnsArray {
@@ -31,13 +33,13 @@ export const MyGlobalContext = createContext<GlobalContent>({
   planType: "Arcade",
   monthly: true,
   addOns: [{ addOnsType: "", isSelected: false, price: 0 }],
-  setName: (name: string) => {},
-  setEmail: (email: string) => {},
-  setPhoneNumber: (phoneNumber: string) => {},
-  setPlan: (plan: number) => {},
-  setPlanType: (planType: string) => {},
-  setMonthly: (monthly: boolean) => {},
-  setAddOns: (addOns: AddOnsArray[]) => {},
+  setName: (_name: string) => {},
+  setEmail: (_email: string) => {},
+  setPhoneNumber: (_phoneNumber: string) => {},
+  setPlan: (_plan: number) => {},
+  setPlanType: (_planType: string) => {},
+  setMonthly: (_monthly: boolean) => {},
+  setAddOns: (_addOns: AddOnsArray[]) => {},
 });
 
 export const useGlobalContext = () => useContext(MyGlobalContext);
