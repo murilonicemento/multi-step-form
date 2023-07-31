@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   OptionArcade,
@@ -17,9 +17,10 @@ import ball from "../../assets/images/icon-ball.svg";
 import { useGlobalContext } from "../../hooks/useGlobalContext";
 
 export function PlansOptions() {
-  const { monthly, setMonthly, setPlan, setPlanType } = useGlobalContext();
+  const { monthly, setMonthly, setPlan, planType, setPlanType } =
+    useGlobalContext();
   const [isMonthly, setIsMonthly] = useState(monthly);
-  const [isArcade, setIsArcade] = useState(true);
+  const [isArcade, setIsArcade] = useState(false);
   const [isAdvanced, setIsAdvanced] = useState(false);
   const [isPro, setIsPro] = useState(false);
   const navigate = useNavigate();
@@ -31,12 +32,34 @@ export function PlansOptions() {
     monthly: string;
   }
 
+  interface PlansValues {
+    planType: string;
+    isSelected: boolean;
+    price: number;
+  }
+
   const inputProps: InputProps = {
     type: "checkbox",
     name: "switch",
     defaultChecked: isMonthly,
     monthly: isMonthly.toString(),
   };
+
+  function verifyQuantityPlansSelected(plansValues: PlansValues[]) {
+    const quantityPlansSelected = plansValues.filter(
+      (plan) => plan.isSelected === true
+    );
+
+    if (quantityPlansSelected.length > 1)
+      return alert("You can only select one plan");
+
+    plansValues.forEach((plan) => {
+      if (plan.isSelected) {
+        setPlanType(plan.planType);
+        setPlan(plan.price);
+      }
+    });
+  }
 
   function verifyPlans(event: { preventDefault: () => void }) {
     event.preventDefault();
@@ -57,23 +80,22 @@ export function PlansOptions() {
         price: isMonthly ? 15 : 150,
       },
     ];
-    const quantityPlansSelected = plansValues.filter(
-      (plan) => plan.isSelected === true
-    );
 
-    if (quantityPlansSelected.length > 1)
-      return alert("You can only select one plan");
-
-    plansValues.forEach((plan) => {
-      if (plan.isSelected) {
-        setPlanType(plan.planType);
-        setPlan(plan.price);
-      }
-    });
+    verifyQuantityPlansSelected(plansValues);
 
     setMonthly(isMonthly);
     navigate("/addOns");
   }
+
+  function verifyPlanType(plan: string): void {
+    if (plan === "Arcade") setIsArcade(true);
+    if (plan === "Advanced") setIsAdvanced(true);
+    if (plan === "Pro") setIsPro(true);
+  }
+
+  useEffect(() => {
+    verifyPlanType(planType);
+  }, [planType]);
 
   return (
     <>
