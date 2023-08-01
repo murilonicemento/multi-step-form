@@ -5,7 +5,7 @@ export function Acknowledgment() {
   return (
     <>
       <Header />
-      <MessageOfThanks />;
+      <MessageOfThanks />
     </>
   );
 }

@@ -13,10 +13,23 @@ export const Container = styled.div`
   border-radius: 8px;
 
   p {
-    width: 100%;
+    width: 90%;
     font-size: 18px;
     font-weight: 500;
     text-align: center;
     line-height: 25px;
+  }
+
+  @media (min-width: 800px) {
+    width: 67%;
+    height: 100vh;
+    position: absolute;
+    margin: 0;
+    top: 10px;
+    right: 10px;
+
+    img {
+      width: 20%;
+    }
   }
 `;

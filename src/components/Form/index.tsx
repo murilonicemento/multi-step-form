@@ -3,6 +3,7 @@ import { PersonalInfo } from "../PersonalInfo";
 import { PlansOptions } from "../PlansOptions";
 import { AddOnsOptions } from "../AddOnsOptions";
 import { DoubleCheck } from "../DoubleCheck";
+import { MessageOfThanks } from "../MessageOfThanks";
 import { MyForm } from "./styled";
 
 interface FormProps {
@@ -24,6 +25,8 @@ export function Form({ title, content }: FormProps) {
         return <AddOnsOptions />;
       case "/finish":
         return <DoubleCheck />;
+      case "/acknowledgment":
+        return <MessageOfThanks />;
       default:
         break;
     }
