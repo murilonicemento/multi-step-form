@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useGlobalContext } from "../../hooks/useGlobalContext.js";
@@ -9,7 +9,6 @@ export function PersonalInfo() {
     useGlobalContext();
   const { register, setFocus } = useForm();
   const navigate = useNavigate();
-  const [focus, setIsFocused] = useState(false);
 
   function verifyForm(event: { preventDefault: () => void }) {
     event.preventDefault();
@@ -36,7 +35,6 @@ export function PersonalInfo() {
         value={name}
         onChange={(event) => {
           setName(event.target.value);
-          setIsFocused(true);
         }}
       />
 
@@ -61,7 +59,6 @@ export function PersonalInfo() {
         value={phoneNumber}
         onChange={(event) => {
           setPhoneNumber(event.target.value);
-          setIsFocused(true);
         }}
       />
 
