@@ -24,9 +24,11 @@ export const MyForm = styled.form`
   @media (min-width: 800px) {
     width: 67%;
     height: 100vh;
+    background-color: ${colors.neutral.white};
     position: absolute;
     margin: 0;
     top: 10px;
     right: 10px;
+    border-radius: 0;
   }
 `;
